@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+</head>
+<body>
+  <div class="container">
+
+    <div style="margin-top: 5rem;">
+      <div class="row">
+        <form class="col s12" action="/add-task" method="POST">
+          <div class="row">
+            <div class="input-field col s12">
+              <input required name="task" placeholder="Enter Task" id="task" type="text" class="validate">
+              <label for="task">Task</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        {{#if data }}
+          <div>
+            {{#each data}}
+              <ul class="collection">
+                <li class="collection-item">
+                  <div>{{this}}
+                    <a href="/delete/{{@index}}" class="secondary-content">
+                      <i class="material-icons">delete_forever</i>
+                    </a>
+                  </div>
+                </li>
+              </ul>  
+            {{/each}}                
+          </div>
+          {{else}}
+          <div class="center">
+          <h1>Create new Tasks...</h1>
+        </div>
+        {{/if}} 
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
